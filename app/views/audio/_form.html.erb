@@ -1,0 +1,21 @@
+<div class="container m-5 p-5" id="audio_form">
+  <h2 class="text-3xl font-bold mb-4">🚀 Let's ask a question, AI will answer with its voice 🤖</h2>
+  <%= form_with url: tts_path, method: :post do %>
+    <div class="mb-4">
+      <%= text_area_tag :prompt,
+      nil,
+      rows: 4,
+      cols: 50,
+      placeholder: "Enter a question to get an AI voice response...",
+      class: "form-textarea mt-1 py-2 px-4 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+    </div>
+
+    <div class="mb-4 flex items-center">
+      <%= radio_button_tag :voice_type, 'male', true %>
+      <label class="ml-2 mr-4" for="voice_type_male">Male</label>
+      <%= radio_button_tag :voice_type, 'female' %>
+      <label class="ml-2" for="voice_type_female">Female</label>
+    </div>
+    <%= submit_tag "Get Response", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  <% end %>
+</div>
